@@ -12,5 +12,11 @@ pipeline {
       	sh 'mvn clean install'
       }
     }
+    stage('Docker Build') {
+    	agent docker
+      steps {
+      	sh 'docker build -t girish040583/capstone:latest .'
+      }
+    }
   }
 }
