@@ -13,7 +13,9 @@ pipeline {
       }
     }
     stage('Docker Build') {
-      agent {docker}
+      agent {
+        dockernode
+      }
       steps {
       	sh 'docker build -t girish040583/capstone:latest .'
       }
