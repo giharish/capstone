@@ -13,7 +13,7 @@ pipeline {
       }
     }
     stage('Docker Build') {
-      agent {label 'dockernode'}
+      agent any
       steps {
       	sh 'docker build -t girish040583/capstone:latest .'
       }
