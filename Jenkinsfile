@@ -21,9 +21,9 @@ pipeline {
     stage('Docker Push') {
       agent {label 'dockernode'}
       steps {
-      	withCredentials([usernamePassword(credentialsId: 'dockerHub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
-        	sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
-          sh 'docker push girish040583r/capstone:latest'
+      	withCredentials([usernamePassword(credentialsId: 'docker_id', passwordVariable: 'docker_idPassword', usernameVariable: 'docker_idUser')]) {
+        	sh "docker login -u ${env.docker_idUser} -p ${env.docker_idPassword}"
+          sh 'docker push girish040583/capstone:latest'
         }
       }
     }
